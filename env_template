@@ -1,0 +1,12 @@
+## These variables are for connecting to Now Playing 2 over the SocketIO feature.
+## Set appropriately to reach your NP2 host on the network, or localhost if running on same computer.
+
+## Rename this file to .env to use it. The .env is in .gitignore so it will not commit.
+
+NP2_HOST=
+NP2_PORT=
+
+## These variables are for connecting to your SPX server. Only set SPX_APIKEY if you have configured SPX to require an API (not the default configuration of SPX.)
+SPX_HOST=
+SPX_PORT=
+SPX_APIKEY=

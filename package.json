@@ -1,0 +1,16 @@
+{
+  "name": "nowplaying_socket_recv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "events": "^3.3.0",
+    "http": "^0.0.1-security",
+    "socket.io-client": "^4.7.5"
+  }
+}
