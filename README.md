@@ -14,7 +14,7 @@ This program sets up a socket.io listener to receive the track data, and parse i
 
 # Requirements
 1. NowPlaying2: https://www.nowplaying2.com
-2. SPX Graphics - Free or Paid version https://spx.graphics
+2. SPX Graphics: Free or Paid version https://spx.graphics
 3. Some knowledge of how SPX layers graphics or at least where to find this information in your rundown/project.
 
 # Installation and Configuration
@@ -59,4 +59,13 @@ To run the app, just run `node test.js` from a terminal/command prompt.
 - [Why all the network stuff?!](#why-all-the-network-stuff)
 
 ## Why all the network stuff?!
-- I run a fairly advanced streaming setup, which includes my DJ laptop running NowPlaying2, a main stream computer running OBS, and a network server that handles all of the SPX requirements. You do NOT need a setup this complex for this to work. If you are doing this all from one computer, setting things to localhost is perfectly fine!
+- I run a fairly advanced streaming setup, which includes my DJ laptop running NowPlaying2, a main stream computer running OBS, and a network server that handles all of the SPX requirements. You do NOT need a setup this complex for this to work, but the flexibility is there. If you are doing this all from one computer, setting things to localhost is perfectly fine!
+
+# Like this?
+If you like this app and it's useful, you can buy me a coffee/beer/etc if you want to. 
+
+https://ko-fi.com/lkhetzel
+
+What's more useful is seeing this app in action on my DJ streams, over at https://mixcloud.com/djcryptografik
+
+Or at my website https://djcryptografik.com
