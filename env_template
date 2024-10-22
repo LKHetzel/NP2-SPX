@@ -7,6 +7,9 @@ NP2_HOST=
 NP2_PORT=
 
 ## These variables are for connecting to your SPX server. Only set SPX_APIKEY if you have configured SPX to require an API (not the default configuration of SPX.)
+
+## SPX defaults to 5656 for the port, as of version 1.2.
+
 SPX_HOST=
 SPX_PORT=
 SPX_APIKEY=

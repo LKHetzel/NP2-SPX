@@ -1,26 +1,35 @@
 const http = require('http');
 const { eventEmitter } = require('./index');
 
-eventEmitter.on('track-updated', (newTitle) => {
+let newTitle = '';
+eventEmitter.on('track-updated', (title, artist) => {
+    console.log("Got data from socket.");
+    newTitle = title;
+    newArtist = artist;
 
+    sendTrackUpdate(newTitle, newArtist);
 });
 
-const data = JSON.stringify({
-    "playServer": "OVERLAY",
-    "playChannel": "1",
-    "playLayer": "5",
-    "webplayoutLayer": "20",
-    "relativeTemplatePath": "softpix/Template_Pack_1.1/INFO_RIGHT.html",
-    "command": "stop",
-    "DataFields": [
-        {"field": "f0", "value": `${newTitle}`},
-        {"field": "f99", "value": "./themes/default.css"}
-    ]
-});
+
+function sendTrackUpdate(title,artist) {
+    const data = JSON.stringify({
+        "casparServer": "OVERLAY",
+        "casparChannel": "1",
+        "casparLayer": "8",
+        "webplayoutLayer": "8",
+        "relativeTemplatePath": "softpix/Template_Pack_1.3/NAME_LEFT.html",
+        "command": "stop",
+        "out": "manual",
+        "DataFields": [
+            {"field": "f0", "value": title},
+            {"field": "f1", "value": artist},
+            {"field": "f99", "value": "./themes/Default.css"}
+        ]
+    });  
 
 const options  = {
-    host:     '192.168.3.10',
-    port:     5656,
+    host:     process.env.SPX_HOST,
+    port:     process.env.SPX_PORT,
     path:     '/api/v1/directplayout',
     method:   'POST',
     headers:  {
@@ -47,3 +56,4 @@ req.on('error', (error) => {
 
 req.write(data);
 req.end();
+}

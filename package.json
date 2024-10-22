@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "events": "^3.3.0",
     "http": "^0.0.1-security",
     "socket.io-client": "^4.7.5"

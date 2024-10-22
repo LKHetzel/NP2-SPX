@@ -1,11 +1,12 @@
 // Quick and Dirty SocketIO Receiver for NowPlaying2
 
+require('dotenv').config()
 const { io } = require("socket.io-client");
 const EventEmitter = require('events');
 
 // Networking
-const HOST = process.env.HOST || "localhost"; // HOST URI - Defaults to localhost
-const PORT = process.env.PORT || 9091;      // SocketIO Server Port, default 9091
+const HOST = process.env.NP2_HOST || "localhost"; // HOST URI - Defaults to localhost
+const PORT = process.env.NP2_PORT || 9091;      // SocketIO Server Port, default 9091
 const socket = io(`ws://${HOST}:${PORT}`);
 
 
@@ -31,7 +32,7 @@ socket.on("track-update", function(data) {
     console.log(`Title: ${trackTitle}`);
     console.log(`Artist: ${trackArtist}`);
     console.log(`Label: ${trackLabel}`);
-    eventEmitter.emit('track-updated', trackTitle); // emit event when track title updates 
+    eventEmitter.emit('track-updated', trackTitle,trackArtist); // emit event when track title updates 
 });
 
 // Export the track data using emitter.
