@@ -4,13 +4,23 @@ A socket receiver from NowPlaying2 that triggers CG scenes in SPX Graphics.
 # How?
 This is accomplished through the fact that the creators of NowPlaying2 have an option in the network settings to export data via Socket.io.
 
+
+## What this does:
 This program sets up a socket.io listener to receive the track data, and parse it into an API call to your SPX Graphics Server, allowing you to use SPX Graphics instead of the NowPlaying2 graphics.
+
+## What this does NOT do:
+This does not pass any graphics output by NowPlaying2. This also does not provide any graphics templates for SPX.
+
+## Simply Put:
+This app takes Track Name, Artist Name, and Label Name from NowPlaying2, and sends that data to SPX, so you can use it in any way you see fit within SPX.
 
 # TODOs
 - Build a package for this
 - Find a way to write to a rundown without automatic playout for better control with StreamDeck/Companion/other control surfaces
 - Better documentation on obtaining layer data from SPX for configuration.
+- Document what needs to change for the user to set templates to be used in SPX
 - API Key support for SPX.
+- Maybe convert this to a plugin for SPX so it runs natively? 
 
 # Requirements
 1. NowPlaying2: https://www.nowplaying2.com
