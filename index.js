@@ -1,7 +1,7 @@
 // Quick and Dirty SocketIO Receiver for NowPlaying2
 
 const { io } = require("socket.io-client");
-const eventEmitter = require('events');
+const EventEmitter = require('events');
 
 // Networking
 const HOST = process.env.HOST || "localhost"; // HOST URI - Defaults to localhost
@@ -17,7 +17,7 @@ let trackLabel = '';
 
 
 // Set up eventEmitter
-const eventEmitter = new eventEmitter();
+const eventEmitter = new EventEmitter();
 
 console.log("Staring NP2 Socket Client...")
 console.log(`Host: ${HOST}\nPort: ${PORT}`)
@@ -31,7 +31,7 @@ socket.on("track-update", function(data) {
     console.log(`Title: ${trackTitle}`);
     console.log(`Artist: ${trackArtist}`);
     console.log(`Label: ${trackLabel}`);
-    eventEmitter.EventEmitter('track-updated', trackTitle); // emit event when track title updates 
+    eventEmitter.emit('track-updated', trackTitle); // emit event when track title updates 
 });
 
 // Export the track data using emitter.
