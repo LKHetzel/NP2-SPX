@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NowPlaying2 Broadcast Lower Third</title>
+  <script src="js/lib/gsap3.2.6.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Roboto', 'Segoe UI', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: transparent; 
+    }
+    .container {
+      position: absolute; bottom: 8%; left: 4%; padding: 25px 35px;
+      background: rgba(30, 30, 30, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px;
+      display: flex; align-items: center; opacity: 0;
+    }
+    #artwork { 
+      width: 90px; height: 90px; border-radius: 6px; margin-right: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(60, 60, 60, 0.5); object-fit: cover; 
+    }
+    .text-block { 
+      display: flex; flex-direction: column; justify-content: center; color: #ffffff; 
+    }
+    #title { 
+      font-size: 1.8em; font-weight: 700; color: #ffffff; margin-bottom: 8px; line-height: 1.2; 
+    }
+    #artist { 
+      font-size: 1.3em; font-weight: 500; color: #cccccc; margin-bottom: 6px; 
+    }
+    #label { 
+      font-size: 1em; font-weight: 400; color: #999999; 
+    }
+  </style>
+  <script>
+    window.SPXGCTemplateDefinition = {
+      "description": "NowPlaying2 Broadcast Lower Third",
+      "dataformat": "json",
+      "uicolor": "7",
+      "DataFields": [
+        { "field": "f0", "ftype": "textfield", "title": "Title", "value": "Title" },
+        { "field": "f1", "ftype": "textfield", "title": "Artist", "value": "Artist" },
+        { "field": "f2", "ftype": "textfield", "title": "Label", "value": "Label" },
+        { "field": "f3", "ftype": "textfield", "title": "Artwork URL", "value": "" }
+      ]
+    };
+  </script>
+</head>
+<body>
+  <div class="container" id="lowerthird">
+    <img id="artwork" src="">
+    <div class="text-block">
+      <div id="title">Title</div>
+      <div id="artist">Artist</div>
+      <div id="label">Label</div>
+    </div>
+  </div>
+
+  <script>
+    let isVisible = false;
+
+    function runTemplateUpdate(data) {
+      let parsedData = data;
+      if (typeof data === 'string') {
+        try {
+          parsedData = JSON.parse(data);
+        } catch (e) {
+          return;
+        }
+      }
+
+      updateElements(parsedData);
+    }
+
+    function updateElements(data) {
+      if (!data) return;
+
+      const titleEl = document.getElementById('title');
+      const artistEl = document.getElementById('artist');
+      const labelEl = document.getElementById('label');
+      const artworkEl = document.getElementById('artwork');
+
+      function decodeHtml(html) {
+        if (!html) return '';
+        const txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
+      }
+
+      if (titleEl) {
+        titleEl.textContent = decodeHtml(data.f0) || 'Title';
+      }
+      if (artistEl) {
+        artistEl.textContent = decodeHtml(data.f1) || 'Artist';
+      }
+      if (labelEl) {
+        labelEl.textContent = decodeHtml(data.f2) || 'Label';
+      }
+      if (artworkEl && data.f3) {
+        artworkEl.src = data.f3;
+      }
+    }
+
+    function runAnimationIN() {
+      if (window.DATAOBJECT) {
+        updateElements(window.DATAOBJECT);
+      }
+
+      const tl = gsap.timeline();
+      tl.to("#lowerthird", { 
+        duration: 1.2, 
+        opacity: 1, 
+        ease: "power2.out" 
+      });
+      
+      isVisible = true;
+    }
+
+    function runAnimationOUT() {
+      gsap.to("#lowerthird", { 
+        duration: 0.8, 
+        opacity: 0, 
+        ease: "power2.in", 
+        onComplete: () => { 
+          isVisible = false; 
+        } 
+      });
+    }
+
+    window.play = function() { runAnimationIN(); }
+    window.stop = function() { runAnimationOUT(); }
+    window.update = function(data) { runTemplateUpdate(data); }
+  </script>
+</body>
+</html>

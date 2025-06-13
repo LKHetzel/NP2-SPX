@@ -62,8 +62,13 @@ STATUS_PORT=3001
 The env.template/.env file explains these variables in more detail.
 
 4️⃣ **Add SPX template:**
-- Copy the `NP2_Lowerthird.html` template to your SPX `templates/vendor/pack/` directory
+- Copy the `lowerthird.html` template to your SPX `templates/<my template>` directory
 - Or update `SPX_TEMPLATE_PATH` to match your template location
+
+**IMPORTANT**
+If you are making a new directory in `/templates` to host your HTML files, you also need to copy the `js` folder from SPX's default template pack, otherwise nothing will appear. 
+
+I do not have the rights to redistribute these files, so I cannot include them.
 
 5️⃣ **Set up SPX rundown:**
 - Create a project and set `SPX_PROJECT` to the name of your project.
@@ -166,10 +171,10 @@ If `ENABLE_COMPANION_FEEDBACK=true`, you can set up visual button feedback that 
 ## Why all the network stuff?!
 I run a fairly advanced streaming setup, which includes my DJ laptop running NowPlaying2, a main stream computer running OBS, and a network server that handles all of the SPX requirements. You do NOT need a setup this complex for this to work, but the flexibility is there. If you are doing this all from one computer, setting things to localhost is perfectly fine!
 
-## Where do I get template.html?
+## Where do I get lowerthird.html?
 That's the tricky bit - I built a custom template that matches all the other graphics I use on my stream, and I'm not about to give out my personal graphics package.
 
-For this, I do plan on adding a basic template in the next few weeks, that's different than what I use but still fully compliant and usable out of the box. That will show how styling works.
+I've added the `/templates` folder with a basic `lowerthird.html` that works. Maybe I'll add a few more basic ones in the future.
 
 You can always read SPX's documentation, and if you're any good at modern CSS for animations and vectors - you're good to go. The data fields in `spxSender.js` will show you what the field mapping is.
 
