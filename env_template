@@ -3,13 +3,35 @@
 
 ## Rename this file to .env to use it. The .env is in .gitignore so it will not commit.
 
-NP2_HOST=
-NP2_PORT=
+# NP2 SOCKET.IO SERVER CONFIGURATION
+NP2_SOCKET_SERVER=localhost
+NP2_SOCKET_PORT=9091
 
-## These variables are for connecting to your SPX server. Only set SPX_APIKEY if you have configured SPX to require an API (not the default configuration of SPX.)
+## These variables are for connecting to your SPX server. Only set SPX_APIKEY if you have configured SPX to require an API Key (not the default configuration of SPX.)
+SPX_HOST=localhost
+SPX_PORT=5656
+#SPX_APIKEY=
 
-## SPX defaults to 5656 for the port, as of version 1.2.
+# Rundown Settings
 
-SPX_HOST=
-SPX_PORT=
-SPX_APIKEY=
+SPX_PROJECT=<SPX Project Name>
+SPX_RUNDOWN=<Rundown Name>
+SPX_ITEMID=<Rundown Item> # Recommend this is a human readable one, not the number it generates - see SPX manual for instructions on changing ItemID.
+
+
+# These reflect your Channel and Layer settings in the rundown:
+# SPX Playout Settings
+# YOU SHOULD NOT CHANGE CASPAR_SERVER OR CASPAR_CHANNEL UNLESS YOU'RE USING AN EXTERNAL CASPARCG SERVER. TRUST ME, YOU'LL KNOW IF THIS APPLIES TO YOU... 
+# You can change the layer numbers if you have other graphics on other layers, that's safe to do, as long as they are within 1-20.
+
+SPX_CASPAR_SERVER=OVERLAY
+SPX_CASPAR_CHANNEL=1
+SPX_CASPAR_LAYER=20
+SPX_WEBPLAYOUT_LAYER=20
+SPX_TEMPLATE_PATH=path_to_html_template #This looks at ASSETS/templates/ as the working directory, so start with folders from there. 
+
+# Status Server for Companion Feedback - Optional, used with Bitfocus Companion. See README.md.
+ENABLE_COMPANION_FEEDBACK=true
+STATUS_PORT=3001 # port this service runs on - change if you're using 3001 elsewhere, otherwise fine to leave this as is.
+COMPANION_HOST=localhost
+COMPANION_PORT=8000
