@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-require('dotenv').config()
 const { io } = require("socket.io-client");
 const EventEmitter = require('events');
 
@@ -14,7 +13,7 @@ let trackArtist = '';
 let trackLabel = '';
 let trackArtwork = '';
 
-const emitter = new eventEmitter();
+const emitter = new EventEmitter();
 
 console.log("Starting NP2 Socket Client...");
 console.log(`Host: ${HOST}\nPort: ${PORT}`);

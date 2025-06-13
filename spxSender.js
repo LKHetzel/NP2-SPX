@@ -32,7 +32,7 @@ const sendUpdate = async (np2data) => {
     const response = await axios.post(`${baseUrl}/api/v1/directplayout`, payload);
     console.log("SPX data updated (not played):", response.data);
   } catch (err) {
-    console.error("SPX update failed:", err.response?.data || err.message);
+    console.error("SPX update failed:", err.response?.data || err.message || "Check to make sure SPX is running.");
   }
 };
 
