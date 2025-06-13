@@ -173,7 +173,7 @@ For this, I do plan on adding a basic template in the next few weeks, that's dif
 
 You can always read SPX's documentation, and if you're any good at modern CSS for animations and vectors - you're good to go. The data fields in `spxSender.js` will show you what the field mapping is.
 
-You do have another option though - Just ask your preferred Agentic Coding AI :expressionless: to use the power of a small country to make you a "Lower third graphics template compatible with SPX" and also link it this repository. It'll go to town and then you can tell it how to style it. Turns out most of the popular ones have some basic knowledge of what's required in an SPX template. 
+You do have another option though - Just ask your preferred "AgEnTiC CoDiNg AI" :expressionless: to use the power of a small country to make you a "Lower third graphics template compatible with SPX" and also link it this repository. It'll go to town and then you can tell it how to style it. Turns out most of the popular ones have some basic knowledge of what's required in an SPX template. 
 
 ## Troubleshooting
 
