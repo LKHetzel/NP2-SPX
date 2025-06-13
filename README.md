@@ -164,7 +164,7 @@ If `ENABLE_COMPANION_FEEDBACK=true`, you can set up visual button feedback that 
 
 # FAQ
 ## Why all the network stuff?!
-- I run a fairly advanced streaming setup, which includes my DJ laptop running NowPlaying2, a main stream computer running OBS, and a network server that handles all of the SPX requirements. You do NOT need a setup this complex for this to work, but the flexibility is there. If you are doing this all from one computer, setting things to localhost is perfectly fine!
+I run a fairly advanced streaming setup, which includes my DJ laptop running NowPlaying2, a main stream computer running OBS, and a network server that handles all of the SPX requirements. You do NOT need a setup this complex for this to work, but the flexibility is there. If you are doing this all from one computer, setting things to localhost is perfectly fine!
 
 ## Where do I get template.html
 That's the tricky bit - I built a custom template that matches all the other graphics I use on my stream, and I'm not about to give out my personal graphics package.
